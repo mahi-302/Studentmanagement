@@ -1,7 +1,7 @@
 pipeline{
-  agent {label 'main'}
+  agent {label "main"}
     stages{
-       stage('hosting application'){
+       stage("hosting application"){
         steps{
           sh "ls"
           sh "aws rds create-db-instance --db-instance-identifier test-mysql-final2 --db-name detsdb --db-instance-class db.t2.micro --vpc-security-group-ids  sg-0bb5391635b3c304e --engine mysql --engine-version 5.7 --db-parameter-group-name default.mysql5.7 --publicly-accessible  --master-username admin --master-user-password Ramrebel56 --allocated-storage 10 --region us-east-2"
