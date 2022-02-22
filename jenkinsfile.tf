@@ -44,14 +44,14 @@ resource "aws_lb" "test" {
 }
 resource "aws_lb_target_group" "test" {
   name     = my-targets
-  port     = 80
-  protocol = HTTP
-  vpc_id   = vpc-0f607673eab7d2eb7
+  port     = "80"
+  protocol = "HTTP"
+  vpc_id   = "vpc-0f607673eab7d2eb7"
 }
 resource "aws_lb_listener" "front_end" {
   load_balancer_arn = "arn:aws:elasticloadbalancing:us-east-2:931430496116:loadbalancer/app/my-load-balancer/70a9cbee293d24d9"
   port              = "80"
-  protocol          = HTTP
+  protocol          = "HTTP"
   default_action {
     type             = "Instance"
     target_group_arn = "arn:aws:elasticloadbalancing:us-east-2:931430496116:targetgroup/my-targets/26b72c4337de35a4"
