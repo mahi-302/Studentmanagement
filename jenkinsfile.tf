@@ -32,7 +32,7 @@ resource "aws_autoscaling_group" "bar" {
   min_size             = 1
   max_size             = 2
   desired_capacity     = 1
-  target_group_arns   = [aws_lb_target_group.test.us-east-2:931430496116:autoScalingGroup:7b57d37c-5d34-434a-ba6d-d0f7fd8ffa90:autoScalingGroupName/my-asg3-cli]
+  target_group_arns   = ["aws_lb_target_group.test.us-east-2:931430496116:autoScalingGroup:7b57d37c-5d34-434a-ba6d-d0f7fd8ffa90:autoScalingGroupName/my-asg3-cli"]
  availability_zones = us-east-2b
 }
 resource "aws_lb" "test" {
