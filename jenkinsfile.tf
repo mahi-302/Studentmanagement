@@ -23,11 +23,11 @@ resource "aws_launch_configuration" "as_conf" {
   security_groups    = sg-0bb5391635b3c304es
   key_name = "jenkins"
   iam_instance_profile = "ram-s3-role"
-   user_data = templatefile("${path.module}/userdata.tftpl", {endpoint = aws_db_instance.default.endpoint,password = aws_db_instance.default.password,address = aws_db_instance.default.address})
+   user_data = templatefile("${path.module}/userdata.txt", {endpoint = aws_db_instance.default.endpoint,password = aws_db_instance.default.password,address = aws_db_instance.default.address})
 }
 resource "aws_autoscaling_group" "bar" {
   name                 = my-asg3-cli 
-  depends_on           = ["aws_launch_configuration.as_conf"]
+  depends_on           = ["aws_launch_configuration.as_conf"],
   launch_configuration = aws_launch_configuration.as_conf.my-lc3-cli
   min_size             = 1
   max_size             = 2
